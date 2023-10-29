@@ -6,7 +6,7 @@
         "build": "vite build"
     },
     "devDependencies": {
-        "grunt": "^1.6.1",
+        "grunt": "^1.4.1",
         "grunt-dart-sass": "^2.0.1",
         "grunt-terser": "^2.0.0",
         "sass": "^1.63.6"

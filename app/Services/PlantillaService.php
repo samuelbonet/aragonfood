@@ -1,6 +1,7 @@
 <?php
 
 namespace App\Services;
+use Illuminate\Support\Facades\Auth;
 
 class PlantillaService
 {
@@ -9,11 +10,13 @@ class PlantillaService
     private $data = null;
     private $css_files = [];
     private $js_files = [];
+    private $user = null;
 
 
     public function __construct()
     {
         $this->loadPlantillaFiles();
+        $this->user = Auth::user();
     }
     
 
@@ -53,6 +56,7 @@ class PlantillaService
     {
         $this->addCss('assets/node_modules/@fortawesome/fontawesome-free/css/all.min.css');
         $this->addCss('plantilla/css/plantilla.min.css');
+        $this->addCss('plantilla/css/app.css');
         $this->addJs('plantilla/js/plantilla.min.js');
     }
     
