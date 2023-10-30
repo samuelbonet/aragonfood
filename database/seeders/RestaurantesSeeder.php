@@ -111,10 +111,10 @@ class RestaurantesSeeder extends Seeder
             [
                 'id'=>6, 
                 'titulo'=> "La Mina Gastrobar",
-                'descripcion'=> "Platos contundentes de la cocina aragonesa",
-                'direccion'=> "C. de Félix Latassa, 34, 50006 ",
-                'poblacion'=> "Zaragoza",
-                'telefono'=> " 976 55 50 14",
+                'descripcion'=> "Cocina de autor,productos de primera calidad,raciones,platos,ensaladas,hamburguesas y mucho más...",
+                'direccion'=> "C. yagüe de salas, n4, 44002  ",
+                'poblacion'=> "Teruel",
+                'telefono'=> " 978 09 27 68",
                 'horario'=> "<span>Lunes:	12:30-16:00, 20:00-00:00 </span><br>
                     <span>Martes:	Cerrado </span><br>
                     <span>Miércoles:	Cerrado </span><br>
@@ -130,7 +130,7 @@ class RestaurantesSeeder extends Seeder
             [
                 'id'=>7, 
                 'titulo'=> "Los Marqueses de Vasalbar",
-                'descripcion'=> "Platos contundentes de la cocina aragonesa",
+                'descripcion'=> "Cocina casera | Menú diario",
                 'direccion'=> "C. Rubio 5 ",
                 'poblacion'=> "Teruel",
                 'telefono'=> " 978 79 25 15",

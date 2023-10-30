@@ -62,10 +62,10 @@
                                             {!! $restaurante->horario !!}
                                             </p>
                                             <p><i class="fa-solid fa-wheat-awn-circle-exclamation" style="color: #000000;"></i>
-                                            El establecimiento @if(!$restaurante->gluten) no @endif cuenta con alimentos para personas intolerantes al gluten
+                                            El establecimiento @if(!$restaurante->gluten) no @endif cuenta con alimentos para personas intolerantes al gluten*
                                             </p>
                                             <p><i class="fa-solid fa-seedling" style="color: #000000;"></i>
-                                            El establecimiento @if(!$restaurante->vegano) no @endif cuenta con alimentos para personas veganas
+                                            El establecimiento @if(!$restaurante->vegano) no @endif cuenta con alimentos para personas veganas*
                                             </p>
                                             <p><i class="fa-solid fa-globe" style="color: #000000;"></i>
                                                 @if($restaurante->web)
@@ -92,5 +92,6 @@
                     </section>
                 </div>
             </div>
+            <p> * Para obtener una información más detallada de platos sin gluten y veganos, consultar con el establecimiento</p>
         </div>
     </section>
