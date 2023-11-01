@@ -112,7 +112,7 @@ class RestaurantesSeeder extends Seeder
                 'id'=>6, 
                 'titulo'=> "La Mina Gastrobar",
                 'descripcion'=> "Cocina de autor,productos de primera calidad,raciones,platos,ensaladas,hamburguesas y mucho más...",
-                'direccion'=> "C. yagüe de salas, n4, 44002  ",
+                'direccion'=> "C. Yagüe de salas, n4, 44002  ",
                 'poblacion'=> "Teruel",
                 'telefono'=> " 978 09 27 68",
                 'horario'=> "<span>Lunes:	12:30-16:00, 20:00-00:00 </span><br>
@@ -146,6 +146,25 @@ class RestaurantesSeeder extends Seeder
                 'web'=> null,
                 'instagram'=>"losmarquesesrestauranteteruel",
             ],
+            [
+                'id'=>8, 
+                'titulo'=> "Bodega Bar Pirineos ",
+                'descripcion'=> "Bodega especializada en encurtidos, curados y quesos de gran calidad",
+                'direccion'=> "C. Fraga, 16, 18, 22004 ",
+                'poblacion'=> "Huesca",
+                'telefono'=> " 974 22 96 42",
+                'horario'=> "<span>Lunes:	 09:00-15:00, 18:00-22:00</span><br>
+                    <span>Martes:	 09:00-15:00, 18:00-22:00 </span><br>
+                    <span>Miércoles:	 09:00-15:00, 18:00-22:00 </span><br>
+                    <span>Jueves:	 09:00-15:00, 18:00-22:00 </span><br>
+                    <span>Viernes:	 09:00-15:00, 18:00-22:00 </span><br>
+                    <span>Sábado:	 09:00-15:00, 18:00-22:00 </span><br>
+                    <span>Domingo:	 09:00-15:00 </span><br>",
+                'gluten'=> false,
+                'vegano'=> false,
+                'web'=> null,
+                'instagram'=>"bodegabarpirineos",
+            ]
             
         ], ['id']);
     }
