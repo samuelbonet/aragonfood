@@ -47,7 +47,7 @@
                                         <div class="about-text">
                                             <div class="d-flex align-items-center">
                                                 <h2 class="m-0">{{ $restaurante->titulo }}</h2>
-                                                @if ($user->administrador)
+                                                @if (auth()->check() && auth()->user()->administrador)
                                                     <div class="ml-1">
                                                         <a href="{{ route('restaurante', $restaurante->id) }}" class="btn btn-primary btn-sm">
                                                             <i class="fa-solid fa-pen-to-square"></i>

@@ -25,4 +25,8 @@ class RegisterController extends Controller{
 
         return redirect()->route('login')->with('registrado', 'Usuario registrado correctamente');
     }
+
+    public function reset(PlantillaService $plantilla){
+        return $plantilla->view('reset');
+    }
 }

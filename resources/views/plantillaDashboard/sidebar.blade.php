@@ -28,7 +28,7 @@
         </li>
 
         <li class="nav-item">
-        <a href="pages/widgets.html" class="nav-link">
+        <a href="{{ route('comunidad') }}" class="nav-link">
           <i class="fa-solid fa-thumbs-up" style="color: #ffffff;"></i> <p style="margin-left:12px">Comunidad</p>
             
         </a>

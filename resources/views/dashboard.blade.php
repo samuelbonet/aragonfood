@@ -33,6 +33,7 @@
           El Origen Huesca<br>
           La Mina Gastro bar<br>
           Restaurante Los Marqueses de Vasalbar<br>
+          Bodega Bar Pirineos<br>
         </p>
         <p class="text-center">👳Cocineros colaboradores: 
         <br>

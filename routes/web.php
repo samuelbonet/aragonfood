@@ -53,7 +53,8 @@ Route::middleware(AccesoUsuario::class)->group(function() {
 });
 
 Route::get('perfil' , [DashboardController::class,'perfil'])->name("perfil");    
-Route::get('calendario' , [DashboardController::class,'calendario'])->name("calendario");    
+Route::get('calendario' , [DashboardController::class,'calendario'])->name("calendario");
+Route::get('comunidad' , [DashboardController::class,'comunidad'])->name("comunidad");        
 
 //auth
 Route::prefix('auth')->group(function(){

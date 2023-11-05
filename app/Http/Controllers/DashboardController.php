@@ -22,5 +22,10 @@ class DashboardController extends Controller{
         $plantilla->setTitle ('Calendario') ;
         return $plantilla->view('calendario');
     }
+    public function comunidad(DashboardPlantillaService $plantilla)
+    {
+        $plantilla->setTitle ('Comunidad') ;
+        return $plantilla->view('comunidad');
+    }
 
 }

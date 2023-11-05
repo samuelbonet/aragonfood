@@ -86,7 +86,7 @@ class RestaurantesSeeder extends Seeder
                     <span>Domingo:	13:30–15:30 </span><br>",
                 'gluten'=> true,
                 'vegano'=> true,
-                'web'=> "https://cateringyeventosdelpirineo.com/",
+                'web'=> "cateringyeventosdelpirineo.com",
                 'instagram'=>"cateringyeventosdelpirineo",
             ],
             [
@@ -105,7 +105,7 @@ class RestaurantesSeeder extends Seeder
                     <span>Domingo:	13:30–15:30 </span><br>",
                 'gluten'=> true,
                 'vegano'=> false,
-                'web'=> "https://www.labodegadechema.es/",
+                'web'=> "labodegadechema.es",
                 'instagram'=>"labodegadechema_",
             ],
             [
@@ -124,8 +124,8 @@ class RestaurantesSeeder extends Seeder
                     <span>Domingo:	12:30-16:00, 20:00-00:00 </span><br>",
                 'gluten'=> true,
                 'vegano'=> true,
-                'web'=> "https://www.labodegadechema.es/",
-                'instagram'=>"cateringyeventosdelpirineo",
+                'web'=> false,
+                'instagram'=>"laminagastrobar",
             ],
             [
                 'id'=>7, 
@@ -160,8 +160,8 @@ class RestaurantesSeeder extends Seeder
                     <span>Viernes:	 09:00-15:00, 18:00-22:00 </span><br>
                     <span>Sábado:	 09:00-15:00, 18:00-22:00 </span><br>
                     <span>Domingo:	 09:00-15:00 </span><br>",
-                'gluten'=> false,
-                'vegano'=> false,
+                'gluten'=> true,
+                'vegano'=> true,
                 'web'=> null,
                 'instagram'=>"bodegabarpirineos",
             ]
