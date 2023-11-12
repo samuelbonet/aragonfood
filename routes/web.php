@@ -54,7 +54,14 @@ Route::middleware(AccesoUsuario::class)->group(function() {
 
 Route::get('perfil' , [DashboardController::class,'perfil'])->name("perfil");    
 Route::get('calendario' , [DashboardController::class,'calendario'])->name("calendario");
-Route::get('comunidad' , [DashboardController::class,'comunidad'])->name("comunidad");        
+Route::get('comunidad' , [DashboardController::class,'comunidad'])->name("comunidad");
+Route::get('reset-password',[LoginController::class,'resetPassword'])->name("reset-password");        
+Route::post('reset-password',[LoginController::class,'resetPasswordEmail'])->name("reset-password-email");
+Route::get('reset-password-exito',[LoginController::class,'resetPasswordExito'])->name("reset-password-exito");
+
+Route::get('reset-password-new/{token}',[LoginController::class,'resetPasswordNew'])->name("reset-password-new")->whereUuid('token');        
+Route::post('reset-password-new/{token}',[LoginController::class,'resetPasswordNewPost'])->name("reset-password-new-post")->whereUuid('token');        
+Route::get('reset-password-new-exito',[LoginController::class,'resetPasswordNewExito'])->name("reset-password-new-exito");
 
 //auth
 Route::prefix('auth')->group(function(){

@@ -19,15 +19,15 @@
                             <div class="form-group w-25">
                                 <label>Celíaco:</label>
                                 <select class="form-control" name="gluten">
-                                    <option value="0" @if(!$data->gluten) selected @endif>No</option>
-                                    <option value="1" @if($data->gluten) selected @endif>Sí</option>
+                                    <option value="0" @if(!$data->gluten) selected @endif>Todos los restaurantes</option>
+                                    <option value="1" @if($data->gluten) selected @endif>Restaurantes aptos para celíacos</option>
                                 </select>
                             </div>
                             <div class="form-group w-25 ml-3">
                                 <label>Vegano:</label>
                                 <select class="form-control" name="vegano">
-                                    <option value="0" @if(!$data->vegano) selected @endif>No</option>
-                                    <option value="1" @if($data->vegano) selected @endif>Sí</option>
+                                    <option value="0" @if(!$data->vegano) selected @endif>Todos los restaurantes</option>
+                                    <option value="1" @if($data->vegano) selected @endif>Restaurantes aptos para veganos</option>
                                 </select>
                             </div>
                         </div>
