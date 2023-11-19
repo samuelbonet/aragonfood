@@ -8,7 +8,12 @@
              <div class="main-text">
                 <h3 class="profile-username text-center text-light">{{Auth::user()->name}}</h3>
                 <h3 class="profile-username text-center text-light">{{Auth::user()->email}}</h3>
-                <p class="profile-username text-center text-light"><i class="fa-solid fa-pencil" style="color: #ffffff;"></i> Cambiar contraseña</p>
+                <div class="text-center">
+                    <i class="fa-solid fa-pencil" style="color: #ffffff;"></i>
+                    <a href="{{ route('reset-password') }}" class="profile-username text-light">Cambiar contraseña</a>
+                </div>
+
+
             </div>
             </div>
              </div>

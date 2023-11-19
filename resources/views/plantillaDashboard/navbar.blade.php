@@ -8,12 +8,6 @@
 
     <!-- Right navbar links -->
     <ul class="navbar-nav ml-auto">
-       <li class="nav-item">
-        <a class="nav-link" data-widget="fullscreen" href="{{ route('logout') }}" role="">
-          
-        </a>
-      </li>
-
       <li class="nav-item dropdown user-menu">
         
          <img src="https://ui-avatars.com/api/?name={{urlencode(auth()->user()->name) }}&color=f9f9f9&background=323e62'" width="30" class="rounded-circle ">
