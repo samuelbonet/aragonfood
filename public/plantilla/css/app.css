@@ -30,6 +30,16 @@ background: linear-gradient(to right, #2657eb, #de6161);
     justify-content: flex-end;
 }
 
+.resetPassword{
+  position: absolute;
+
+  left: 50%;
+  top: 50%;
+
+  transform: translate(-50%, -50%);
+}
+
+
 /*-------------------------------------------------------------------------------------------------------*/
 
 /*Dashboard*/
@@ -85,7 +95,6 @@ blockquote{
   border: 7px solid #fff;
   margin-top: -80px;
 }
-
 
 
 
