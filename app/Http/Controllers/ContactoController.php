@@ -13,7 +13,7 @@ class ContactoController extends Controller
 {
     public function index(PlantillaService $plantilla)
     {
-      
+        $plantilla->setTitle('Contacto');
         return $plantilla->view("contacto/contacto");
     }
 

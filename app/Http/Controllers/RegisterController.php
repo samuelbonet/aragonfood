@@ -12,6 +12,7 @@ class RegisterController extends Controller{
     
     public function index(PlantillaService $plantilla)
     {
+        $plantilla->setTitle('Registrarse');
         $plantilla->addCss('css/pages/registro.css');
         return $plantilla->view('register');
     }

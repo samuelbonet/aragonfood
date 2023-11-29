@@ -16,4 +16,10 @@ class User extends Authenticatable
     protected $casts = [
         'administrador' => 'boolean',
     ];
+
+
+    public function mensajes()
+    {
+        return $this->hasMany(MensajeComunidad::class, 'id_usuario');
+    }
 }

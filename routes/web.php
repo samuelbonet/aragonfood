@@ -2,7 +2,9 @@
 
 use App\Http\Controllers\AragonfoodController;
 use App\Http\Controllers\ContactoController;
-use App\Http\Controllers\DashboardController;
+use App\Http\Controllers\Dashboard\ComunidadController;
+use App\Http\Controllers\Dashboard\DashboardController;
+use App\Http\Controllers\Dashboard\PerfilController;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\RegisterController;
 use App\Http\Controllers\RestauranteController;
@@ -11,7 +13,6 @@ use App\Http\Middleware\AccesoAdmin;
 use App\Http\Middleware\AccesoLogin;
 use App\Http\Middleware\AccesoUsuario;
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\DasboardController;
 
 
 /*
@@ -50,11 +51,19 @@ Route::post('register' , [RegisterController::class, 'register'])->name('registe
 Route::middleware(AccesoUsuario::class)->group(function() {
     Route::get('dashboard' , [DashboardController::class,'index'])->name("dashboard");
 
+    Route::get('perfil' , [PerfilController::class,'index'])->name("perfil"); 
+    Route::get('perfil/reset-password' , [PerfilController::class,'resetPassword'])->name("perfil.reset-password");   
+    Route::post('perfil/reset-password' , [PerfilController::class,'resetPasswordPost'])->name("perfil.reset-password-post"); 
+    Route::get('calendario' , [DashboardController::class,'calendario'])->name("calendario");
+
+    Route::prefix('comunidad')->group(function() {
+        Route::get('/', [ComunidadController::class,'index'])->name("comunidad");
+        Route::post('enviar', [ComunidadController::class,'enviar'])->name("comunidad.enviar");
+        Route::post('imagen/subir', [ComunidadController::class, 'subirImagen']);
+    });
+
 });
 
-Route::get('perfil' , [DashboardController::class,'perfil'])->name("perfil");    
-Route::get('calendario' , [DashboardController::class,'calendario'])->name("calendario");
-Route::get('comunidad' , [DashboardController::class,'comunidad'])->name("comunidad");
 Route::get('reset-password',[LoginController::class,'resetPassword'])->name("reset-password");        
 Route::post('reset-password',[LoginController::class,'resetPasswordEmail'])->name("reset-password-email");
 Route::get('reset-password-exito',[LoginController::class,'resetPasswordExito'])->name("reset-password-exito");

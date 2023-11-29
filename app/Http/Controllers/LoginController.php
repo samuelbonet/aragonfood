@@ -19,6 +19,7 @@ class LoginController extends Controller
 {
     public function index(PlantillaService $plantilla)
     {
+        $plantilla->setTitle('Iniciar sesión');
         $plantilla->addCss('css/pages/login.css');
         return $plantilla->view("login");
     }
@@ -46,6 +47,7 @@ class LoginController extends Controller
     }
 
     public function resetPassword(PlantillaService $plantilla){
+        $plantilla->setTitle('Restablecer contraseña');
         return $plantilla->view('resetPassword');
     }
 

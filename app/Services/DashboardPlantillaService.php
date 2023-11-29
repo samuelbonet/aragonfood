@@ -63,5 +63,12 @@ class DashboardPlantillaService
         $this->addCss('plantilla/css/app.css');
         $this->addJs('plantilla/js/plantilla.min.js');
     }
+
+
+    public function loadCkEditor()
+    {
+        $this->addJs('assets/node_modules/@ckeditor/ckeditor5-build-classic/build/ckeditor.js');
+        $this->addJs('assets/node_modules/@ckeditor/ckeditor5-build-classic/build/translations/es.js');
+    }
     
 }

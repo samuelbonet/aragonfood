@@ -13,6 +13,7 @@ class AragonfoodController extends Controller
     public function index(PlantillaService $plantilla)
     {
         //$plantilla->addCss('css/index.css');
+        $plantilla->setTitle('Inicio');
         return $plantilla->view("index");
     }
 
@@ -20,16 +21,10 @@ class AragonfoodController extends Controller
 
     public function blog(PlantillaService $plantilla)
     {
-      
+        $plantilla->setTitle('Blog');
         return $plantilla->view("blog");
     }
 
-
-    public function contacto(PlantillaService $plantilla)
-    {
-      
-        return $plantilla->view("contacto");
-    }
 
  
 }
