@@ -11,15 +11,16 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Carbon;
 use Illuminate\Support\Facades\Auth;
 
-class ComunidadController extends Controller{
-    
+class ComunidadController extends Controller
+{
+
     public function index(DashboardPlantillaService $plantilla)
     {
-        $mensajes = MensajeComunidad::with('usuario')->oldest()->get()->groupBy(function($mensaje) {
+        $mensajes = MensajeComunidad::with('usuario')->oldest()->get()->groupBy(function ($mensaje) {
             return $mensaje->created_at->locale('es')->translatedFormat('j F Y');
         });
 
-        $plantilla->setTitle ('Comunidad') ;
+        $plantilla->setTitle('Comunidad');
         $plantilla->loadCkEditor();
         $plantilla->addJs('js/pages/comunidad.js');
         $plantilla->setData($mensajes);
@@ -40,7 +41,7 @@ class ComunidadController extends Controller{
     public function subirImagen(Request $request)
     {
         $path = $request->file('file')->store('comunidad', 'public');
-        
+
         return url('storage/' . $path);
     }
 

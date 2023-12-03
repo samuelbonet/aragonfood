@@ -17,7 +17,7 @@ class AragonfoodController extends Controller
         return $plantilla->view("index");
     }
 
-    
+
 
     public function blog(PlantillaService $plantilla)
     {
@@ -26,5 +26,5 @@ class AragonfoodController extends Controller
     }
 
 
- 
+
 }

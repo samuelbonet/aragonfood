@@ -17,7 +17,7 @@ class ContactoController extends Controller
         return $plantilla->view("contacto/contacto");
     }
 
-    
+
     public function enviar(EnvioContactoRequest $request)
     {
         Mail::send(new EnvioContacto($request->validated()));
@@ -28,6 +28,6 @@ class ContactoController extends Controller
 
     public function exito(PlantillaService $plantilla)
     {
-        return $plantilla->view("contacto/contacto-exito");        
+        return $plantilla->view("contacto/contacto-exito");
     }
 }

@@ -46,12 +46,14 @@ class LoginController extends Controller
         return redirect()->route('login');
     }
 
-    public function resetPassword(PlantillaService $plantilla){
+    public function resetPassword(PlantillaService $plantilla)
+    {
         $plantilla->setTitle('Restablecer contraseña');
         return $plantilla->view('resetPassword');
     }
 
-    public function resetPasswordEmail(ResetPasswordEmailRequest $request){
+    public function resetPasswordEmail(ResetPasswordEmailRequest $request)
+    {
         $usuario = User::firstWhere('email', $request->validated('email'));
         $usuario->update([
             'reset_password_token' => Str::uuid()
@@ -60,17 +62,20 @@ class LoginController extends Controller
         return redirect()->route('reset-password-exito');
     }
 
-    public function resetPasswordExito (PlantillaService $plantilla) {
+    public function resetPasswordExito(PlantillaService $plantilla)
+    {
         return $plantilla->view('resetPasswordExito');
     }
 
-    public function resetPasswordNew($token, PlantillaService $plantilla) {
+    public function resetPasswordNew($token, PlantillaService $plantilla)
+    {
         $usuario = User::where('reset_password_token', $token)->firstOrFail();
         $plantilla->setData($usuario);
         return $plantilla->view('resetPasswordNew');
     }
 
-    public function resetPasswordNewPost($token, ResetPasswordRequest $request){
+    public function resetPasswordNewPost($token, ResetPasswordRequest $request)
+    {
         $usuario = User::where('reset_password_token', $token)->first();
         $usuario->update([
             'password' => Hash::make($request->validated('password')),
@@ -79,7 +84,8 @@ class LoginController extends Controller
         return redirect()->route('reset-password-new-exito');
     }
 
-    public function resetPasswordNewExito (PlantillaService $plantilla){
+    public function resetPasswordNewExito(PlantillaService $plantilla)
+    {
         return $plantilla->view('resetPasswordNewExito');
     }
 }

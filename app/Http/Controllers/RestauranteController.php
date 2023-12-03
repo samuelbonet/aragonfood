@@ -7,8 +7,9 @@ use App\Models\Restaurante;
 use App\Services\PlantillaService;
 use Illuminate\Http\Request;
 
-class RestauranteController extends Controller{
-    
+class RestauranteController extends Controller
+{
+
     public function index(Restaurante $restaurante, PlantillaService $plantilla)
     {
         $plantilla->setData($restaurante);
