@@ -1,3 +1,4 @@
+<!--Barra de navegación de la plantilla-->
 <nav class="main-header navbar navbar-expand-md navbar-dark">
     <div class="container-fluid">
         <a href="{{ url('/') }}" class="navbar-brand">

@@ -1,3 +1,4 @@
+<!--Pagina de bienvenida del dashboard-->
 <div class="container mt-4">
     <h1 class="text-center">¡Bienvenid@ 🙋!</h1><hr>
       <p class="text-center">Primero de todo, felicitarte por haber llegado hasta aquí. Ya eres un miembro más de nuestra comunidad de usuarios, y para ello
