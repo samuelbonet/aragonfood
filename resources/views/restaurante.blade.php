@@ -1,45 +1,49 @@
 <div class="row justify-content-center">
     <div class="col-4">
-        <form action="{{ route('restaurante.guardar', $data->id) }}" method="post">
+        <form action="{{ route('restaurante.guardar', $data->restaurante->id) }}" method="post">
             @csrf
             <div class="form-group mb-3">
                 <label>Título</label>
-                <input type="text" class="form-control" name="titulo" value="{{ old('titulo') ?? $data->titulo }}">
+                <input type="text" class="form-control" name="titulo" value="{{ old('titulo') ?? $data->restaurante->titulo }}">
                 @error('titulo')
                     <div class="text-red">{{ $message }}</div>
                 @enderror
             </div>
             <div class="form-group mb-3">
                 <label>Descripción</label>
-                <textarea class="form-control" name="descripcion" style="height: 100px">{{ old('descripcion') ?? $data->descripcion }}</textarea>
+                <textarea class="form-control" name="descripcion" style="height: 100px">{{ old('descripcion') ?? $data->restaurante->descripcion }}</textarea>
                 @error('titulo')
                     <div class="text-red">{{ $descripcion }}</div>
                 @enderror
             </div>
             <div class="form-group mb-3">
                 <label>Dirección</label>
-                <input type="text" class="form-control" name="direccion" value="{{ old('direccion') ?? $data->direccion }}">
+                <input type="text" class="form-control" name="direccion" value="{{ old('direccion') ?? $data->restaurante->direccion }}">
                 @error('direccion')
                     <div class="text-red">{{ $message }}</div>
                 @enderror
             </div>
             <div class="form-group mb-3">
                 <label>Población</label>
-                <input type="text" class="form-control" name="poblacion" value="{{ old('poblacion') ?? $data->poblacion }}">
-                @error('poblacion')
+                <select class="form-control" name="id_poblacion">
+                    @foreach ($data->poblaciones as $poblacion)
+                        <option value="{{ $poblacion->id }}" @if($poblacion->id == (old('id_poblacion') ?? $data->restaurante->id_poblacion)) selected @endif>{{ $poblacion->poblacion }}</option>
+                    @endforeach
+                </select>
+                @error('id_poblacion')
                     <div class="text-red">{{ $message }}</div>
                 @enderror
             </div>
             <div class="form-group mb-3">
                 <label>Teléfono</label>
-                <input type="text" class="form-control" name="telefono" value="{{ old('telefono') ?? $data->telefono }}">
+                <input type="text" class="form-control" name="telefono" value="{{ old('telefono') ?? $data->restaurante->telefono }}">
                 @error('telefono')
                     <div class="text-red">{{ $message }}</div>
                 @enderror
             </div>
             <div class="form-group mb-3">
                 <label>Horario</label>
-                <textarea class="form-control" name="horario" style="height: 200px">{{ old('horario') ?? $data->horario }}</textarea>
+                <textarea class="form-control" name="horario" style="height: 200px">{{ old('horario') ?? $data->restaurante->horario }}</textarea>
                 @error('horario')
                     <div class="text-red">{{ $descripcion }}</div>
                 @enderror
@@ -49,8 +53,8 @@
                     <div class="form-group mb-3">
                         <label>Gluten</label>
                         <select class="form-control" name="gluten">
-                            <option value="0" @if(old('gluten') ?? !$data->gluten) selected @endif>No</option>
-                            <option value="1" @if(old('gluten') ?? $data->gluten) selected @endif>Sí</option>
+                            <option value="0" @if(old('gluten') ?? !$data->restaurante->gluten) selected @endif>No</option>
+                            <option value="1" @if(old('gluten') ?? $data->restaurante->gluten) selected @endif>Sí</option>
                         </select>
                         @error('gluten')
                             <div class="text-red">{{ $message }}</div>
@@ -61,8 +65,8 @@
                     <div class="form-group mb-3">
                         <label>Vegano</label>
                         <select class="form-control" name="vegano">
-                            <option value="0" @if(old('vegano') ?? !$data->vegano) selected @endif>No</option>
-                            <option value="1" @if(old('vegano') ?? $data->vegano) selected @endif>Sí</option>
+                            <option value="0" @if(old('vegano') ?? !$data->restaurante->vegano) selected @endif>No</option>
+                            <option value="1" @if(old('vegano') ?? $data->restaurante->vegano) selected @endif>Sí</option>
                         </select>
                         @error('vegano')
                             <div class="text-red">{{ $message }}</div>
@@ -72,14 +76,14 @@
             </div>
             <div class="form-group mb-3">
                 <label>Web</label>
-                <input type="text" class="form-control" name="web" value="{{ old('web') ?? $data->web }}">
+                <input type="text" class="form-control" name="web" value="{{ old('web') ?? $data->restaurante->web }}">
                 @error('web')
                     <div class="text-red">{{ $message }}</div>
                 @enderror
             </div>
             <div class="form-group mb-3">
                 <label>Instagram</label>
-                <input type="text" class="form-control" name="instagram" value="{{ old('instagram') ?? $data->instagram }}">
+                <input type="text" class="form-control" name="instagram" value="{{ old('instagram') ?? $data->restaurante->instagram }}">
                 @error('instagram')
                     <div class="text-red">{{ $message }}</div>
                 @enderror

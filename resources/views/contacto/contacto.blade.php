@@ -9,17 +9,17 @@
         @csrf
         <div class="card-body">
             <div class="form-group">
-                <label for="exampleInputNombre">Nombre *</label><!--Nombre-->
+                <label>Nombre *</label><!--Nombre-->
                 <input type="text" name="nombre" class="form-control @error('nombre') is-invalid @enderror"
-                    id="exampleInputNombre" placeholder="Introduzca un nombre" value="{{ old('nombre') }}">
+                    placeholder="Introduzca un nombre" value="{{ old('nombre') }}">
                 @error('nombre')
                     <div class="text-red">{{ $message }}</div>
                 @enderror
             </div>
 
             <div class="form-group">
-                <label for="exampleInputApellido">Apellido *</label><!--Apellido-->
-                <input type="text" name="apellido" class="form-control" id="exampleInputApellido"
+                <label>Apellido *</label><!--Apellido-->
+                <input type="text" name="apellido" class="form-control"
                     placeholder="Introduzca un apellido" value="{{ old('apellido') }}">
                 @error('apellido')
                     <div class="text-red">{{ $message }}</div>
@@ -27,10 +27,23 @@
             </div>
 
             <div class="form-group">
-                <label for="exampleInputCorreo">Correo Electrónico *</label><!--Correo electrónico-->
-                <input type="text" name="correo" class="form-control" id="exampleInputCorreo"
+                <label >Correo Electrónico *</label><!--Correo electrónico-->
+                <input type="text" name="correo" class="form-control"
                     placeholder="Introduzca una dirección de correo válida" value="{{ old('correo') }}">
                 @error('correo')
+                    <div class="text-red">{{ $message }}</div>
+                @enderror
+            </div>
+
+            <div class="form-group">
+                <label>¿Tiene que ver con algún restaurante? *</label>
+                <select name="id_restaurante" class="form-control">
+                    <option value="">No</option>
+                    @foreach ($data->restaurantes as $restaurante)
+                        <option value="{{ $restaurante->id }}" @if($restaurante->id == old('id_restaurante')) selected @endif>{{ $restaurante->titulo }}</option>
+                    @endforeach
+                </select>
+                @error('id_restaurante')
                     <div class="text-red">{{ $message }}</div>
                 @enderror
             </div>

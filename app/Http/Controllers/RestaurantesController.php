@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Poblacion;
 use App\Models\Restaurante;
 use App\Services\PlantillaService;
 use Illuminate\Http\Request;
@@ -11,9 +12,9 @@ class RestaurantesController extends Controller
 
     public function index(PlantillaService $plantilla, Request $request)
     {
-        $query = Restaurante::query();
-        if (!is_null($request->search)) {
-            $query->where('poblacion', 'LIKE', '%' . $request->search . '%');
+        $query = Restaurante::with("poblacion");
+        if (!is_null($request->poblacion) && $request->poblacion != "0") {
+            $query->where('id_poblacion', $request->poblacion);
         }
         if ($request->gluten == "1") {
             $query->where('gluten', true);
@@ -23,9 +24,12 @@ class RestaurantesController extends Controller
         }
         $restaurantes = $query->get();
 
+        $poblaciones = Poblacion::all();
+
         $plantilla->setData((object) [
             'restaurantes' => $restaurantes,
-            'search' => $request->search,
+            'poblaciones' => $poblaciones,
+            'poblacion' => $request->poblacion,
             'gluten' => $request->gluten === "1",
             'vegano' => $request->vegano === "1"
         ]);

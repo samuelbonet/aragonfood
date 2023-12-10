@@ -18,7 +18,7 @@ class RestaurantesSeeder extends Seeder
                 'titulo'=> "El Rincón de Sas",
                 'descripcion'=> "Cocina de autor basada en la tradición de nuestras raíces, nuestra tierra y la técnica para aprovechar el 100% del producto y trasladarlo a nuestros platos.",
                 'direccion'=> "C. del Blasón Aragonés, 6, 50003",
-                'poblacion'=> "Zaragoza",
+                'id_poblacion'=> 1,
                 'telefono'=> "976 73 78 12",
                 'horario'=> "<span>Lunes:	Cerrado </span><br>
                     <span>Martes:	12:30–17:00</span><br>
@@ -37,7 +37,7 @@ class RestaurantesSeeder extends Seeder
                 'titulo'=> "El Truco",
                 'descripcion'=> "Bar de tapas sencillo, con terraza, que sirve tentempiés y raciones sin gluten.",
                 'direccion'=> "C. de los Estébanes, 2, 50003",
-                'poblacion'=> "Zaragoza",
+                'id_poblacion'=> 1,
                 'telefono'=> "976 05 57 53",
                 'horario'=> "<span>Lunes:	12:00–16:00, 20:00–24:00 </span><br>
                     <span>Martes:	Cerrado </span><br>
@@ -56,7 +56,7 @@ class RestaurantesSeeder extends Seeder
                 'titulo'=> "El Origen Huesca",
                 'descripcion'=> "Productos de temporada con menú aragonés.",
                 'direccion'=> "Pl. del Justicia, 4, 22001 ",
-                'poblacion'=> "Huesca",
+                'id_poblacion'=> 2,
                 'telefono'=> "974 22 97 45",
                 'horario'=> "<span>Lunes:	13:30–18:00 </span><br>
                     <span>Martes:	13:30–18:00 </span><br>
@@ -75,7 +75,7 @@ class RestaurantesSeeder extends Seeder
                 'titulo'=> "La era de los nogales",
                 'descripcion'=> "Restauración made in Aragón",
                 'direccion'=> "C. Baja Sardas, 2, 22613 Sardas ",
-                'poblacion'=> "Huesca",
+                'id_poblacion'=> 2,
                 'telefono'=> " 693 01 94 79",
                 'horario'=> "<span>Lunes:	13:30-15:30 </span><br>
                     <span>Martes:	Cerrado </span><br>
@@ -94,7 +94,7 @@ class RestaurantesSeeder extends Seeder
                 'titulo'=> "Restaurante La Bodega de Chema",
                 'descripcion'=> "Platos contundentes de la cocina aragonesa",
                 'direccion'=> "C. de Félix Latassa, 34, 50006 ",
-                'poblacion'=> "Zaragoza",
+                'id_poblacion'=> 1,
                 'telefono'=> " 976 55 50 14",
                 'horario'=> "<span>Lunes:	13:30-15:30 </span><br>
                     <span>Martes:	Cerrado </span><br>
@@ -113,7 +113,7 @@ class RestaurantesSeeder extends Seeder
                 'titulo'=> "La Mina Gastrobar",
                 'descripcion'=> "Cocina de autor,productos de primera calidad,raciones,platos,ensaladas,hamburguesas y mucho más...",
                 'direccion'=> "C. Yagüe de salas, n4, 44002  ",
-                'poblacion'=> "Teruel",
+                'id_poblacion'=> 3,
                 'telefono'=> " 978 09 27 68",
                 'horario'=> "<span>Lunes:	12:30-16:00, 20:00-00:00 </span><br>
                     <span>Martes:	Cerrado </span><br>
@@ -132,7 +132,7 @@ class RestaurantesSeeder extends Seeder
                 'titulo'=> "Los Marqueses de Vasalbar",
                 'descripcion'=> "Cocina casera | Menú diario",
                 'direccion'=> "C. Rubio 5 ",
-                'poblacion'=> "Teruel",
+                'id_poblacion'=> 3,
                 'telefono'=> " 978 79 25 15",
                 'horario'=> "<span>Lunes:	09:00-17:00 </span><br>
                     <span>Martes:	09:00-17:00 </span><br>
@@ -151,7 +151,7 @@ class RestaurantesSeeder extends Seeder
                 'titulo'=> "Bodega Bar Pirineos ",
                 'descripcion'=> "Bodega especializada en encurtidos, curados y quesos de gran calidad",
                 'direccion'=> "C. Fraga, 16, 18, 22004 ",
-                'poblacion'=> "Huesca",
+                'id_poblacion'=> 2,
                 'telefono'=> " 974 22 96 42",
                 'horario'=> "<span>Lunes:	 09:00-15:00, 18:00-22:00</span><br>
                     <span>Martes:	 09:00-15:00, 18:00-22:00 </span><br>

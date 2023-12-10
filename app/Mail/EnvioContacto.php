@@ -2,6 +2,7 @@
 
 namespace App\Mail;
 
+use App\Models\Restaurante;
 use Illuminate\Bus\Queueable;
 use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Mail\Mailable;
@@ -14,6 +15,7 @@ class EnvioContacto extends Mailable
     use Queueable, SerializesModels;
 
     public $formulario;
+    public ?Restaurante $restaurante = null;
 
     /**
      * Create a new message instance.
@@ -21,6 +23,9 @@ class EnvioContacto extends Mailable
     public function __construct($formulario)
     {
         $this->formulario = $formulario;
+        if (!is_null($formulario['id_restaurante'])) {
+            $this->restaurante = Restaurante::find($formulario['id_restaurante']);
+        }
     }
 
     /**

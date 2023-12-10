@@ -14,4 +14,16 @@ class Restaurante extends Model
         "gluten" => "boolean",
         "vegano" => "boolean"
     ];
+
+
+    public function poblacion()
+    {
+        return $this->belongsTo(Poblacion::class,"id_poblacion");
+    }
+
+
+    public function modificaciones()
+    {
+        return $this->belongsToMany(User::class, 'restaurantes_modificaciones', 'id_restaurante', 'id_usuario')->withTimestamps();
+    }
 }

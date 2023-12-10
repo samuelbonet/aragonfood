@@ -25,7 +25,7 @@ class GuardarRestauranteRequest extends FormRequest
             'titulo' => ['required', 'string'],
             'descripcion' => ['required', 'string'],
             'direccion' => ['required', 'string'],
-            'poblacion' => ['required', 'string'],
+            'id_poblacion' => ['required', 'integer'],
             'telefono' => ['required', 'string'],
             'horario' => ['required', 'string'],
             'gluten' => ['required', 'boolean'],
@@ -42,7 +42,7 @@ class GuardarRestauranteRequest extends FormRequest
             'titulo' => 'título',
             'descripcion' => 'descripción',
             'direccion' => 'dirección',
-            'poblacion' => 'población',
+            'id_poblacion' => 'población',
             'telefono' => 'teléfono',
         ];
     }

@@ -25,7 +25,7 @@
                 @endforeach
                 
 
-                <!-- Agrega aquí tu recuadro para poner información y subirla -->
+               
                 <div>
                     <div class="timeline-item">
                         
@@ -44,9 +44,7 @@
                         </div>
                     </div>
                 </div>
-                <!-- Fin del recuadro para poner información -->
-
-                <!-- Agrega más elementos del timeline según sea necesario -->
+      
 
        
             </div>

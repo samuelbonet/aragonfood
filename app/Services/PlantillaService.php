@@ -57,6 +57,7 @@ class PlantillaService
         $this->addCss('assets/node_modules/@fortawesome/fontawesome-free/css/all.min.css');
         $this->addCss('plantilla/css/plantilla.min.css');
         $this->addCss('plantilla/css/app.css');
+        $this->addJs('plantilla/js/popper.min.js');
         $this->addJs('plantilla/js/plantilla.min.js');
     }
     
