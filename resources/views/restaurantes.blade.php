@@ -17,7 +17,7 @@
                             </select>
                         </div>
 
-                        <div class="form-group w-25">
+                        <div class="form-group w-25 ml-3">
                             <label>Celíaco:</label>
                             <select class="form-control" name="gluten">
                                 <option value="0" @if (!$data->gluten) selected @endif>Todos los
