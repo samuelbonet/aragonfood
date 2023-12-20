@@ -9,6 +9,7 @@ use App\Services\PlantillaService;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Storage;
 
 class RestauranteController extends Controller
 {
@@ -27,9 +28,17 @@ class RestauranteController extends Controller
     public function guardar(Restaurante $restaurante, GuardarRestauranteRequest $request)
     {
         DB::beginTransaction();
-        $restaurante->update($request->validated());
+        $restaurante->update($request->safe()->except('file'));
         $restaurante->modificaciones()->attach(Auth::id());
         DB::commit();
+        $nombre_fichero = 'restaurante' . $restaurante->id . '.jpg';
+        $request->file('file')->storeAs('', $nombre_fichero, 'restaurantes');
         return redirect()->route("restaurantes");
+    }
+
+
+    public function eliminar(Restaurante $restaurante)
+    {
+        $restaurante->delete();
     }
 }

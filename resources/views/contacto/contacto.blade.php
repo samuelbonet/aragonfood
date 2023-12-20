@@ -61,8 +61,16 @@
 
         <!-- footer del formulario -->
         <div class="card-footer">
-            <button type="submit" class="btn-lg btn-secondary bg-dark">Enviar</button>
+            <div class="row">
+                <div class="col">
+                    <button type="submit" class="btn-lg btn-secondary bg-dark">Enviar</button>
+                </div>
+                <div class="col text-right">
+                    <button type="reset" class="btn-lg btn-secondary bg-dark">Vaciar formulario</button>
+                </div>                
+            </div>
         </div>
+
     </form>
     <!-- final del formulario -->
 </div>

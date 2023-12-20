@@ -2,10 +2,13 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\GuardarRestauranteRequest;
 use App\Models\Poblacion;
 use App\Models\Restaurante;
 use App\Services\PlantillaService;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\DB;
 
 class RestaurantesController extends Controller
 {
@@ -26,6 +29,7 @@ class RestaurantesController extends Controller
 
         $poblaciones = Poblacion::all();
 
+        $plantilla->addJs('js/pages/restaurantes.js');
         $plantilla->setData((object) [
             'restaurantes' => $restaurantes,
             'poblaciones' => $poblaciones,
@@ -49,5 +53,27 @@ class RestaurantesController extends Controller
 
 
         return view('restaurantes', $data);
+    }
+
+
+    public function nuevo(PlantillaService $plantilla)
+    {
+        $plantilla->setData((object) [
+            'poblaciones' => Poblacion::all(),
+        ]);
+        $plantilla->setTitle('Nuevo restaurante');
+        return $plantilla->view("nuevoRestaurante");
+    }
+    
+    
+    public function nuevoPost(GuardarRestauranteRequest $request)
+    {
+        DB::beginTransaction();
+        $restaurante = Restaurante::create($request->safe()->except('file'));
+        $restaurante->modificaciones()->attach(Auth::id());
+        DB::commit();
+        $nombre_fichero = 'restaurante' . $restaurante->id . '.jpg';
+        $request->file('file')->storeAs('', $nombre_fichero, 'restaurantes');
+        return redirect()->route("restaurantes");
     }
 }

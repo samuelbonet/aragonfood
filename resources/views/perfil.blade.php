@@ -10,6 +10,11 @@
                 <h3 class="profile-username text-center text-light">{{Auth::user()->email}}</h3>
                 <div class="text-center">
                     <i class="fa-solid fa-pencil" style="color: #ffffff;"></i>
+                    <a href="{{ route('perfil.cambiar-datos') }}" class="profile-username text-light">Cambiar datos personales</a>
+                </div>
+
+                   <div class="text-center">
+                    <i class="fa-solid fa-pencil" style="color: #ffffff;"></i>
                     <a href="{{ route('perfil.reset-password') }}" class="profile-username text-light">Cambiar contraseña</a>
                 </div>
 

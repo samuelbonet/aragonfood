@@ -46,24 +46,36 @@
 
                 <section class="about section-padding" id="about">
                     <div class="container">
+                        @if (auth()->check() && auth()->user()->administrador)
+                            <div class="row mt-5 mb-5">
+                                <div class="col">
+                                    <a href="{{ route('restaurante.nuevo') }}"  class="btn btn-secondary">
+                                        <i class="fa-solid fa-plus"></i> Nuevo restaurante
+                                    </a>
+                                </div>
+                            </div>
+                        @endif
                         @foreach ($data->restaurantes as $restaurante)
                             <div class="row">
                                 <div class="col-md-4 col-12">
                                     <div class="about-img">
-                                        <img alt="" class="img-fluid"
+                                        <img alt="" class="img-fluid mt-0"
                                             src="{{ asset('img/pagina/restaurantes/restaurante' . $restaurante->id . '.jpg') }}">
                                     </div>
                                 </div>
-                                <div class="col-md-8 col-12 ps-lg-5 mt-md-5">
-                                    <div class="about-text">
+                                <div class="col-md-8 col-12 ps-lg-5 mb-5">
+                                    <div class="about-text restaurante">
                                         <div class="d-flex align-items-center">
-                                            <h2 class="m-0">{{ $restaurante->titulo }}</h2>
+                                            <h2 class="m-0 nombre-restaurante">{{ $restaurante->titulo }}</h2>
                                             @if (auth()->check() && auth()->user()->administrador)
                                                 <div class="ml-1 flex-grow-1">
                                                     <a href="{{ route('restaurante', $restaurante->id) }}"
                                                         class="btn btn-primary btn-sm">
                                                         <i class="fa-solid fa-pen-to-square"></i>
                                                     </a>
+                                                    <button class="btn btn-danger btn-sm eliminar-restaurante" data-id="{{ $restaurante->id }}">
+                                                        <i class="fa-solid fa-trash"></i>
+                                                    </button>
                                                 </div>
                                                 @if ($restaurante->modificaciones()->exists())
                                                     <div class="btn-group">
@@ -133,3 +145,24 @@
             establecimiento</p>
     </div>
 </section>
+
+<!-- Modal -->
+<div class="modal fade" id="modal-eliminar">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header bg-danger">
+        <h5 class="modal-title"><i class="fa-solid fa-trash"></i> Eliminar restaurante</h5>
+      </div>
+      <div class="modal-body" style="font-size: 18px">
+      </div>
+      <div class="modal-footer justify-content-between">
+        <button type="button" class="btn btn-secondary cerrar">
+            <i class="fa-solid fa-times"></i> Cerrar
+        </button>
+        <button type="button" class="btn btn-danger eliminar">
+            <i class="fa-solid fa-trash"></i> Eliminar
+        </button>
+      </div>
+    </div>
+  </div>
+</div>

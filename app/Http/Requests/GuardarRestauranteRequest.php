@@ -3,6 +3,7 @@
 namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
+use Illuminate\Validation\Validator;
 
 class GuardarRestauranteRequest extends FormRequest
 {
@@ -32,6 +33,7 @@ class GuardarRestauranteRequest extends FormRequest
             'vegano' => ['required', 'boolean'],
             'web' => ['nullable', 'string'],
             'instagram' => ['nullable', 'string'],
+            'file' => ['nullable', 'file', 'mimes:jpg'],
         ];
     }
 
@@ -44,6 +46,22 @@ class GuardarRestauranteRequest extends FormRequest
             'direccion' => 'dirección',
             'id_poblacion' => 'población',
             'telefono' => 'teléfono',
+            'file' => 'imagen',
+        ];
+    }
+
+
+    public function after(): array
+    {
+        return [
+            function (Validator $validator) {
+                if (!is_null($this->file('file')) && !$this->file('file')->isValid()) {
+                    $validator->errors()->add(
+                        'file',
+                        $this->file('file')->getErrorMessage()
+                    );
+                }
+            }
         ];
     }
 }

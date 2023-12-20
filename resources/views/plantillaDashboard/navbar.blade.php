@@ -9,6 +9,11 @@
 
     <!-- Right navbar links -->
     <ul class="navbar-nav ml-auto">
+      @if (auth()->user()->administrador)
+        <div class="d-flex align-items-center mr-3">
+          <span class="badge badge-dark" style="font-size: 14px">Administrador</span>
+        </div
+      @endif
       <li class="nav-item dropdown user-menu">
         
          <img src="https://ui-avatars.com/api/?name={{urlencode(auth()->user()->name) }}&color=f9f9f9&background=323e62'" width="30" class="rounded-circle ">

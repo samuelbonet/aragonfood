@@ -7,6 +7,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="csrf-token" content="{{ csrf_token() }}">
     <link rel="icon" type="img/png" href="{{url ("img/pagina/index/logo.png")}}">
       <title>{{ config('app.name') }} | @if(!is_null($title)) {{ $title }} @endif</title>
 
@@ -45,6 +46,9 @@ scratch. This page gets rid of all links and provides the needed markup only.
 <!-- REQUIRED SCRIPTS -->
 
 <!-- PLantilla -->
+<script>
+BASE_URL = '{{ url("/") }}/'
+</script>
 @foreach ($js_files as $file)
     <script src="{{$file}}"></script>
 @endforeach

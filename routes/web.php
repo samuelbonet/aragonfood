@@ -30,9 +30,15 @@ Route::get('/' , [AragonfoodController::class,'index']);
 
 Route::get('restaurantes' , [RestaurantesController::class,'index'])->name("restaurantes");
 
-Route::prefix('restaurantes/{restaurante}')->middleware(AccesoAdmin::class)->group(function() {
-    Route::get('/' , [RestauranteController::class,'index'])->name("restaurante")->whereNumber('restaurante');
-    Route::post('guardar' , [RestauranteController::class,'guardar'])->name("restaurante.guardar")->whereNumber('restaurante');
+Route::prefix('restaurantes')->middleware(AccesoAdmin::class)->group(function() {
+    Route::get('nuevo' , [RestaurantesController::class,'nuevo'])->name("restaurante.nuevo");
+    Route::post('nuevo' , [RestaurantesController::class,'nuevoPost'])->name("restaurante.nuevo-post");
+    
+    Route::prefix('{restaurante}')->whereNumber('restaurante')->group(function() {
+        Route::get('/' , [RestauranteController::class,'index'])->name("restaurante");
+        Route::post('guardar' , [RestauranteController::class,'guardar'])->name("restaurante.guardar");
+        Route::post('eliminar' , [RestauranteController::class,'eliminar']);
+    });
 });
 
 Route::get('contacto' , [ContactoController::class,'index'])->name("contacto");
@@ -51,9 +57,15 @@ Route::post('register' , [RegisterController::class, 'register'])->name('registe
 Route::middleware(AccesoUsuario::class)->group(function() {
     Route::get('dashboard' , [DashboardController::class,'index'])->name("dashboard");
 
-    Route::get('perfil' , [PerfilController::class,'index'])->name("perfil"); 
-    Route::get('perfil/reset-password' , [PerfilController::class,'resetPassword'])->name("perfil.reset-password");   
-    Route::post('perfil/reset-password' , [PerfilController::class,'resetPasswordPost'])->name("perfil.reset-password-post"); 
+    Route::prefix('perfil')->group(function() {
+        Route::get('/' , [PerfilController::class,'index'])->name("perfil"); 
+        Route::get('reset-password' , [PerfilController::class,'resetPassword'])->name("perfil.reset-password");   
+        Route::post('reset-password' , [PerfilController::class,'resetPasswordPost'])->name("perfil.reset-password-post");
+        Route::get('cambiar-datos' , [PerfilController::class,'cambiarDatos'])->name("perfil.cambiar-datos");   
+        Route::post('cambiar-datos' , [PerfilController::class,'cambiarDatosPost'])->name("perfil.cambiar-datos-post");
+       
+    });
+
     Route::get('calendario' , [DashboardController::class,'calendario'])->name("calendario");
 
     Route::prefix('comunidad')->group(function() {

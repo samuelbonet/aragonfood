@@ -1,25 +1,25 @@
 <div class="row justify-content-center">
     <div class="col-4">
-        <h3 class="text-center mb-3">Editar restaurante</h3>
-        <form action="{{ route('restaurante.guardar', $data->restaurante->id) }}" method="post" enctype="multipart/form-data">
+        <h3 class="text-center mb-3">Nuevo restaurante</h3>
+        <form action="{{ route('restaurante.nuevo') }}" method="post" enctype="multipart/form-data">
             @csrf
             <div class="form-group mb-3">
                 <label>Título</label>
-                <input type="text" class="form-control" name="titulo" value="{{ old('titulo') ?? $data->restaurante->titulo }}">
+                <input type="text" class="form-control" name="titulo" value="{{ old('titulo') }}">
                 @error('titulo')
                     <div class="text-red">{{ $message }}</div>
                 @enderror
             </div>
             <div class="form-group mb-3">
                 <label>Descripción</label>
-                <textarea class="form-control" name="descripcion" style="height: 100px">{{ old('descripcion') ?? $data->restaurante->descripcion }}</textarea>
+                <textarea class="form-control" name="descripcion" style="height: 100px">{{ old('descripcion') }}</textarea>
                 @error('titulo')
                     <div class="text-red">{{ $message }}</div>
                 @enderror
             </div>
             <div class="form-group mb-3">
                 <label>Dirección</label>
-                <input type="text" class="form-control" name="direccion" value="{{ old('direccion') ?? $data->restaurante->direccion }}">
+                <input type="text" class="form-control" name="direccion" value="{{ old('direccion') }}">
                 @error('direccion')
                     <div class="text-red">{{ $message }}</div>
                 @enderror
@@ -28,7 +28,7 @@
                 <label>Población</label>
                 <select class="form-control" name="id_poblacion">
                     @foreach ($data->poblaciones as $poblacion)
-                        <option value="{{ $poblacion->id }}" @if($poblacion->id == (old('id_poblacion') ?? $data->restaurante->id_poblacion)) selected @endif>{{ $poblacion->poblacion }}</option>
+                        <option value="{{ $poblacion->id }}" @if($poblacion->id == old('id_poblacion')) selected @endif>{{ $poblacion->poblacion }}</option>
                     @endforeach
                 </select>
                 @error('id_poblacion')
@@ -37,14 +37,14 @@
             </div>
             <div class="form-group mb-3">
                 <label>Teléfono</label>
-                <input type="text" class="form-control" name="telefono" value="{{ old('telefono') ?? $data->restaurante->telefono }}">
+                <input type="text" class="form-control" name="telefono" value="{{ old('telefono') }}">
                 @error('telefono')
                     <div class="text-red">{{ $message }}</div>
                 @enderror
             </div>
             <div class="form-group mb-3">
                 <label>Horario</label>
-                <textarea class="form-control" name="horario" style="height: 200px">{{ old('horario') ?? $data->restaurante->horario }}</textarea>
+                <textarea class="form-control" name="horario" style="height: 200px">{{ old('horario') }}</textarea>
                 @error('horario')
                     <div class="text-red">{{ $message }}</div>
                 @enderror
@@ -54,8 +54,8 @@
                     <div class="form-group mb-3">
                         <label>Gluten</label>
                         <select class="form-control" name="gluten">
-                            <option value="0" @if(old('gluten') ?? !$data->restaurante->gluten) selected @endif>No</option>
-                            <option value="1" @if(old('gluten') ?? $data->restaurante->gluten) selected @endif>Sí</option>
+                            <option value="0" @if(old('gluten')) selected @endif>No</option>
+                            <option value="1" @if(old('gluten')) selected @endif>Sí</option>
                         </select>
                         @error('gluten')
                             <div class="text-red">{{ $message }}</div>
@@ -66,8 +66,8 @@
                     <div class="form-group mb-3">
                         <label>Vegano</label>
                         <select class="form-control" name="vegano">
-                            <option value="0" @if(old('vegano') ?? !$data->restaurante->vegano) selected @endif>No</option>
-                            <option value="1" @if(old('vegano') ?? $data->restaurante->vegano) selected @endif>Sí</option>
+                            <option value="0" @if(old('vegano')) selected @endif>No</option>
+                            <option value="1" @if(old('vegano')) selected @endif>Sí</option>
                         </select>
                         @error('vegano')
                             <div class="text-red">{{ $message }}</div>
@@ -77,14 +77,14 @@
             </div>
             <div class="form-group mb-3">
                 <label>Web</label>
-                <input type="text" class="form-control" name="web" value="{{ old('web') ?? $data->restaurante->web }}">
+                <input type="text" class="form-control" name="web" value="{{ old('web') }}">
                 @error('web')
                     <div class="text-red">{{ $message }}</div>
                 @enderror
             </div>
             <div class="form-group mb-3">
                 <label>Instagram</label>
-                <input type="text" class="form-control" name="instagram" value="{{ old('instagram') ?? $data->restaurante->instagram }}">
+                <input type="text" class="form-control" name="instagram" value="{{ old('instagram') }}">
                 @error('instagram')
                     <div class="text-red">{{ $message }}</div>
                 @enderror

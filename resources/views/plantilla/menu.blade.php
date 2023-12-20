@@ -7,7 +7,7 @@
         <a href="{{route("restaurantes")}}" class="nav-link">Restaurantes</a>
     </li>
     <li class="nav-item">
-        <a href="{{route("blog")}}" class="nav-link">Blog</a>
+        <a href="{{route("blog")}}" class="nav-link">Recetas</a>
     </li>
     <li class="nav-item">
         <a href="{{route("contacto")}}" class="nav-link">Contacto</a>

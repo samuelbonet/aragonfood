@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Dashboard;
 
 use App\Http\Controllers\Controller;
+use App\Http\Requests\Dashboard\CambiarDatosRequest;
 use App\Services\DashboardPlantillaService;
 use Illuminate\Http\Request;
 use App\Http\Requests\ResetPasswordRequest;
@@ -32,6 +33,22 @@ class PerfilController extends Controller
             'password' => Hash::make($request->validated('password')),
             'reset_password_token' => null
         ]);
+        return redirect()->route('perfil');
+    }
+
+    public function cambiarDatos(DashboardPlantillaService $plantilla)
+    {
+        $usuario = Auth::user();
+
+        $plantilla->setTitle('Cambiar datos personales');
+        $plantilla->setData($usuario);
+        return $plantilla->view('resetDatosPerfil');
+    }
+
+    public function cambiarDatosPost(CambiarDatosRequest $request)
+    {
+        $usuario = Auth::user();
+        $usuario->update($request->validated());
         return redirect()->route('perfil');
     }
 
