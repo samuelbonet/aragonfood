@@ -1,7 +1,7 @@
- <div class="resetPassword">
+
      <div class="container">
-         <div class="row ">
-             <div class="col-md-6">
+         <div class="row justify-content-center">
+             <div class="col-md-6 d-flex justify-content-center">
                  <div class="login-box">
                      <div class="login-logo">
                          <div>Aragónfood</div>
@@ -54,4 +54,3 @@
              </div>
          </div>
      </div>
- </div>
