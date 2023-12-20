@@ -24,8 +24,6 @@
                     @endforeach
                 @endforeach
                 
-
-               
                 <div>
                     <div class="timeline-item">
                         
