@@ -9,7 +9,7 @@
 					<div class="about-text">
 						<h2>Bienvenid@ 👋, </h2>
 						<p>a nuestra aplicación web dedicada al sabor propio de la tierra de Aragón,como dice nuestro lema. Encontrarás 
-                        desde un buscador con establecimientos que ofrezcan una serie de productos típicos, un blog con chefs populares
+                        desde un buscador con establecimientos que ofrezcan una serie de productos típicos, recetas con chefs populares
                         y una comunidad de usuarios.</p>
                         <a href="register" class="btn btn-dark" role="button">¡Únete a nuestra comunidad!</a>
                     </div>
@@ -51,7 +51,7 @@
 						<div class="card-body">
 						
 							<i class="fa-solid fa-table-list fa-xl" style="color: #ffffff;"></i>
-							<p class="lead">Seguidamente, encontrarás distinta información, como puede ser un blog,en el que chefs con nombre 
+							<p class="lead">Seguidamente, encontrarás distinta información, como puede ser unas recetas,en el que chefs con nombre 
                             propio, te ayudarán a preparar deliciosas comidas saludables para ti.</p>
 						</div>
 					</div>

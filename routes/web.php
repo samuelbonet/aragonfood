@@ -45,7 +45,7 @@ Route::get('contacto' , [ContactoController::class,'index'])->name("contacto");
 Route::post('contacto/enviar' , [ContactoController::class,'enviar']);
 Route::get('contacto/exito' , [ContactoController::class,'exito'])->name("contacto.exito");
 
-Route::get('blog' , [AragonfoodController::class,'blog'])->name("blog");
+Route::get('recetas' , [AragonfoodController::class,'recetas'])->name("recetas");
 
 Route::get('login' , [LoginController::class,'index'])->middleware(AccesoLogin::class)->name('login');
 Route::post('login' , [LoginController::class,'login'])->name('login.login');
