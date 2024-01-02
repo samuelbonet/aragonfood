@@ -34,8 +34,17 @@ class RestauranteController extends Controller
         
         if (!is_null($request->file('file'))) {
             $nombre_fichero = 'restaurante' . $restaurante->id . '.jpg';
+        
+            // Verificar y eliminar la imagen anterior si existe
+            $ruta_imagen_anterior = 'restaurante' . $restaurante->id . '.jpg';
+            if (file_exists($ruta_imagen_anterior)) {
+                unlink($ruta_imagen_anterior); // Eliminar la imagen anterior
+            }
+        
+            // Guardar la nueva imagen
             $request->file('file')->storeAs('', $nombre_fichero, 'restaurantes');
         }
+        
         
         return redirect()->route("restaurantes");
     }
