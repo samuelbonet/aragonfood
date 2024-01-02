@@ -21,7 +21,7 @@ class AragonfoodController extends Controller
 
     public function recetas(PlantillaService $plantilla)
     {
-        $plantilla->setTitle('Rcetas');
+        $plantilla->setTitle('Recetas');
         return $plantilla->view("recetas");
     }
 
