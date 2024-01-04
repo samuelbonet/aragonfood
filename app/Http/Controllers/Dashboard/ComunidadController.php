@@ -17,7 +17,7 @@ class ComunidadController extends Controller
     public function index(DashboardPlantillaService $plantilla)
     {
         $mensajes = MensajeComunidad::with('usuario')->oldest()->get()->groupBy(function ($mensaje) {
-            return $mensaje->created_at->locale('es')->translatedFormat('j F Y');
+            return $mensaje->created_at->locale('es')->translatedFormat('l j F Y ');
         });
 
         $plantilla->setTitle('Comunidad');

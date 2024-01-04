@@ -35,6 +35,8 @@ class RestauranteController extends Controller
         if (!is_null($request->file('file'))) {
             $nombre_fichero = 'restaurante' . $restaurante->id . '.jpg';
             $request->file('file')->storeAs('', $nombre_fichero, 'restaurantes');
+
+           
         }
         
         return redirect()->route("restaurantes");

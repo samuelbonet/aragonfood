@@ -44,7 +44,15 @@
             </div>
             <div class="form-group mb-3">
                 <label>Horario</label>
-                <textarea class="form-control" name="horario" style="height: 200px">{{ old('horario') }}</textarea>
+                <textarea class="form-control" name="horario" style="height: 200px">{{ old('horario') }}
+                    <span>Introducir horario </span><br>
+                        <span>Introducir horario  </span><br>
+                        <span>Introducir horario  </span><br>
+                        <span>Introducir horario  </span><br>
+                        <span>Introducir horario  </span><br>
+                        <span>Introducir horario  </span><br>
+                        <span>Introducir horario  </span><br>
+                </textarea>
                 @error('horario')
                     <div class="text-red">{{ $message }}</div>
                 @enderror
