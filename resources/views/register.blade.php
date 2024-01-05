@@ -1,3 +1,4 @@
+<!--Formulario de registro-->
 <div class="register-box ">
   <div class="register-logo  text-center">
     <a href="" class="text-center">Aragónfood</a>

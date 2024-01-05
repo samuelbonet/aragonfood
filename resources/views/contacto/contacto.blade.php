@@ -36,7 +36,7 @@
             </div>
 
             <div class="form-group">
-                <label>¿Tiene que ver con algún restaurante? *</label>
+                <label>¿Tiene que ver con algún restaurante? *</label><!--Relación con restaurante-->
                 <select name="id_restaurante" class="form-control">
                     <option value="">No</option>
                     @foreach ($data->restaurantes as $restaurante)

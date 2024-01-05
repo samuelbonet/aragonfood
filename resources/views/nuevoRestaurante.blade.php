@@ -1,3 +1,4 @@
+<!--Creación de un restaurante-->
 <div class="row justify-content-center">
     <div class="col-4">
         <h3 class="text-center mb-3">Nuevo restaurante</h3>
