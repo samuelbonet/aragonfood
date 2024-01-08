@@ -14,6 +14,7 @@ class AdministradorSeeder extends Seeder
    
     public function run(): void
     {
+         // Crea un nuevo usuario administrador usando el modelo User
         User::create([
             'name' => 'admin',
             'password' => Hash::make('admin'),

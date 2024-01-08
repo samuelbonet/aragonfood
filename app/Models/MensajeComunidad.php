@@ -11,7 +11,7 @@ class MensajeComunidad extends Model
     
     use HasFactory;
 
-    protected $table = "mensajes_comunidad";
+    protected $table = "mensajes_comunidad"; // Nombre de la tabla en la base de datos
     protected $guarded = [];
 
     protected function mensaje(): Attribute

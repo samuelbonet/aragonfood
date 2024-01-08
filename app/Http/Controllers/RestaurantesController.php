@@ -13,9 +13,12 @@ use Illuminate\Support\Facades\DB;
 class RestaurantesController extends Controller
 {
 
+    // Método para mostrar la lista de restaurantes según filtros
     public function index(PlantillaService $plantilla, Request $request)
     {
+        // Prepara la consulta de restaurantes 
         $query = Restaurante::with("poblacion");
+        // Aplica filtros si se especifican en la solicitud
         if (!is_null($request->poblacion) && $request->poblacion != "0") {
             $query->where('id_poblacion', $request->poblacion);
         }
@@ -25,6 +28,7 @@ class RestaurantesController extends Controller
         if ($request->vegano == "1") {
             $query->where('vegano', true);
         }
+        // Obtiene los restaurantes según los filtros
         $restaurantes = $query->get();
 
         $poblaciones = Poblacion::all();
@@ -41,7 +45,7 @@ class RestaurantesController extends Controller
         return $plantilla->view("restaurantes");
     }
 
-
+        // Método para buscar restaurantes según el término de búsqueda
     public function restaurantes(Request $request)
     {
         $busqueda = $request->busqueda;
@@ -55,7 +59,7 @@ class RestaurantesController extends Controller
         return view('restaurantes', $data);
     }
 
-
+        // Método para mostrar el formulario para agregar un nuevo restaurante
     public function nuevo(PlantillaService $plantilla)
     {
         $plantilla->setData((object) [
@@ -65,7 +69,7 @@ class RestaurantesController extends Controller
         return $plantilla->view("nuevoRestaurante");
     }
     
-    
+        // Método para procesar la creación de un nuevo restaurante
     public function nuevoPost(GuardarRestauranteRequest $request)
     {
         DB::beginTransaction();

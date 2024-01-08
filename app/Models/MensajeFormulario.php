@@ -10,6 +10,6 @@ class MensajeFormulario extends Model
     
     use HasFactory;
 
-    protected $table = "mensajes_formulario";
+    protected $table = "mensajes_formulario"; // Nombre de la tabla en la base de datos
     protected $guarded = [];
 }

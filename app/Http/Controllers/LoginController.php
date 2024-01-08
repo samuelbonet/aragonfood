@@ -17,6 +17,8 @@ use Illuminate\Support\Str;
 
 class LoginController extends Controller
 {
+
+    // Método para mostrar el formulario de inicio de sesión
     public function index(PlantillaService $plantilla)
     {
         $plantilla->setTitle('Iniciar sesión');
@@ -24,7 +26,7 @@ class LoginController extends Controller
         return $plantilla->view("login");
     }
 
-
+    // Método para procesar el inicio de sesión
     public function login(LoginRequest $request)
     {
         if (Auth::attempt($request->validated())) {
@@ -37,7 +39,7 @@ class LoginController extends Controller
         ]);
     }
 
-
+    // Método para cerrar sesión del usuario
     public function logout()
     {
         Auth::logout();

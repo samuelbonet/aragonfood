@@ -16,11 +16,13 @@ class AccesoAdmin
      */
     public function handle(Request $request, Closure $next): Response
     {
+        // Obtiene al usuario autenticado
         $user = Auth::user();
+         // Verifica si el usuario no está autenticado o no es administrador
         if (is_null($user) || !$user->administrador) {
             return redirect()->route('login');
         }
-
+        // Si es un administrador autenticado, permite el acceso a la solicitud
         return $next($request);
     }
 }

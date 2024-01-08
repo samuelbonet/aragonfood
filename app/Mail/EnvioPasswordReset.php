@@ -14,14 +14,14 @@ class EnvioPasswordReset extends Mailable
 {
     use Queueable, SerializesModels;
 
-    public User $usuario;
+    public User $usuario; // Usuario al que se enviará el correo
 
     /**
      * Create a new message instance.
      */
     public function __construct(User $usuario)
     {
-        $this->usuario = $usuario;
+        $this->usuario = $usuario; // Se asigna el usuario al atributo $usuario
     }
 
     /**
@@ -30,8 +30,8 @@ class EnvioPasswordReset extends Mailable
     public function envelope(): Envelope
     {
         return new Envelope(
-            to: [$this->usuario->email],
-            subject: 'Restablecer contraseña de Aragónfood',
+            to: [$this->usuario->email], // Dirección de correo del usuario
+            subject: 'Restablecer contraseña de Aragónfood', // Asunto del correo
         );
     }
 
@@ -41,7 +41,7 @@ class EnvioPasswordReset extends Mailable
     public function content(): Content
     {
         return new Content(
-            view: 'mail.envio-reset-password',
+            view: 'mail.envio-reset-password', // Vista para el contenido del correo
         );
     }
 
@@ -52,6 +52,6 @@ class EnvioPasswordReset extends Mailable
      */
     public function attachments(): array
     {
-        return [];
+        return []; 
     }
 }

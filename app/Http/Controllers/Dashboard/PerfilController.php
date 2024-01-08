@@ -13,6 +13,7 @@ use Illuminate\Support\Facades\Hash;
 class PerfilController extends Controller
 {
 
+    // Método para mostrar la vista del perfil del usuario
     public function index(DashboardPlantillaService $plantilla)
     {
 
@@ -20,12 +21,14 @@ class PerfilController extends Controller
         return $plantilla->view('perfil');
     }
 
+    // Método para mostrar la vista de cambio de contraseña
     public function resetPassword(DashboardPlantillaService $plantilla)
     {
         $plantilla->setTitle('Cambiar contraseña');
         return $plantilla->view('resetPasswordNewPerfil');
     }
 
+    // Método para procesar el cambio de contraseña
     public function resetPasswordPost(ResetPasswordRequest $request)
     {
         $usuario = Auth::user();
@@ -33,9 +36,11 @@ class PerfilController extends Controller
             'password' => Hash::make($request->validated('password')),
             'reset_password_token' => null
         ]);
+        // Redirige de nuevo a la página del perfil después de cambiar la contraseña
         return redirect()->route('perfil');
     }
 
+     // Método para mostrar la vista de cambio de datos
     public function cambiarDatos(DashboardPlantillaService $plantilla)
     {
         $usuario = Auth::user();
@@ -45,6 +50,7 @@ class PerfilController extends Controller
         return $plantilla->view('resetDatosPerfil');
     }
 
+    // Método para procesar el cambio de datos personales
     public function cambiarDatosPost(CambiarDatosRequest $request)
     {
         $usuario = Auth::user();

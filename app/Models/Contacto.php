@@ -9,7 +9,7 @@ class Contacto extends Model
 {
     use HasFactory;
 
-    protected $table = 'contacto'; 
+    protected $table = 'contacto'; // Nombre de la tabla en la base de datos
     protected $fillable = ['campo1', 'campo2', 'campo3']; 
 }
 

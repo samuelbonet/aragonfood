@@ -13,10 +13,11 @@ class PoblacionesSeeder extends Seeder
      */
     public function run(): void
     {
+         // Actualiza registros en la tabla 'poblaciones' usando el método upsert
         Poblacion::upsert([
             ['id' => 1, 'poblacion' => 'Zaragoza'],
             ['id' => 2, 'poblacion' => 'Huesca'],
             ['id' => 3, 'poblacion' => 'Teruel'],
-        ], ['id']);
+        ], ['id']);// Identificador utilizado para determinar si es una inserción o actualización
     }
 }

@@ -14,6 +14,7 @@ use Illuminate\Support\Facades\Storage;
 class RestauranteController extends Controller
 {
 
+     // Método para mostrar el formulario de edición de un restaurante
     public function index(Restaurante $restaurante, PlantillaService $plantilla)
     {
         $plantilla->setData((object) [
@@ -24,7 +25,7 @@ class RestauranteController extends Controller
         return $plantilla->view("restaurante");
     }
 
-
+    // Método para guardar los cambios realizados en un restaurante
     public function guardar(Restaurante $restaurante, GuardarRestauranteRequest $request)
     {
         DB::beginTransaction();
@@ -42,7 +43,7 @@ class RestauranteController extends Controller
         return redirect()->route("restaurantes");
     }
 
-
+    // Método para eliminar un restaurante
     public function eliminar(Restaurante $restaurante)
     {
         $restaurante->delete();

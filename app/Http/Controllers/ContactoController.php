@@ -12,6 +12,7 @@ use Illuminate\Support\Facades\Mail;
 
 class ContactoController extends Controller
 {
+    // Método para mostrar el formulario de contacto
     public function index(PlantillaService $plantilla)
     {
         $plantilla->setTitle('Contacto');
@@ -21,7 +22,7 @@ class ContactoController extends Controller
         return $plantilla->view("contacto/contacto");
     }
 
-
+    // Método para enviar el formulario de contacto
     public function enviar(EnvioContactoRequest $request)
     {
         Mail::send(new EnvioContacto($request->validated()));
@@ -29,7 +30,7 @@ class ContactoController extends Controller
         return redirect()->route('contacto.exito');
     }
 
-
+    // Método para mostrar la página de éxito posterior al enviar el formulario de contacto
     public function exito(PlantillaService $plantilla)
     {
         return $plantilla->view("contacto/contacto-exito");

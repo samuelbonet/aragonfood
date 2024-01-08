@@ -18,7 +18,7 @@ class AragonfoodController extends Controller
     }
 
 
-
+     // Método para la sección de recetas
     public function recetas(PlantillaService $plantilla)
     {
         $plantilla->setTitle('Recetas');

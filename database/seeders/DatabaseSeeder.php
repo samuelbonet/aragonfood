@@ -12,6 +12,7 @@ class DatabaseSeeder extends Seeder
      */
     public function run(): void
     {
+         // Llama a otros seeders para poblar la base de datos con información
         $this->call([
             AdministradorSeeder::class,
             RestaurantesSeeder::class

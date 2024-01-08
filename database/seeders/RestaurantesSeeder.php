@@ -9,10 +9,13 @@ use Illuminate\Http\Request;
 
 class RestaurantesSeeder extends Seeder
 {
-   
+
+   // Método para poblar la base de datos con información de restaurantes
     public function run(): void
     {
+          // Inserta o actualiza registros en la tabla de restaurantes usando el método upsert
         Restaurante::upsert([
+            // Datos de restaurantes
             [
                 'id'=>1, 
                 'titulo'=> "El Rincón de Sas",

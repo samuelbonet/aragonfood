@@ -14,8 +14,8 @@ class EnvioContacto extends Mailable
 {
     use Queueable, SerializesModels;
 
-    public $formulario;
-    public ?Restaurante $restaurante = null;
+    public $formulario; // Contiene los datos del formulario de contacto
+    public ?Restaurante $restaurante = null; // Puede contener información sobre el restaurante
 
     /**
      * Create a new message instance.
@@ -23,6 +23,8 @@ class EnvioContacto extends Mailable
     public function __construct($formulario)
     {
         $this->formulario = $formulario;
+
+        // Si el formulario tiene un ID restaurante, se busca y se asigna a la propiedad $restaurante
         if (!is_null($formulario['id_restaurante'])) {
             $this->restaurante = Restaurante::find($formulario['id_restaurante']);
         }
@@ -34,8 +36,8 @@ class EnvioContacto extends Mailable
     public function envelope(): Envelope
     {
         return new Envelope(
-            to: ['samuelbonetweb@gmail.com'],
-            subject: 'Formulario de contacto Aragónfood',
+            to: ['samuelbonetweb@gmail.com'], // Dirección de correo de destino
+            subject: 'Formulario de contacto Aragónfood', // Asunto del correo
         );
     }
 
@@ -45,7 +47,7 @@ class EnvioContacto extends Mailable
     public function content(): Content
     {
         return new Content(
-            view: 'mail.envio-contacto',
+            view: 'mail.envio-contacto', // Vista para el contenido del correo
         );
     }
 
@@ -56,6 +58,6 @@ class EnvioContacto extends Mailable
      */
     public function attachments(): array
     {
-        return [];
+        return []; 
     }
 }

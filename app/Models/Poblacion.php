@@ -7,7 +7,8 @@ use Illuminate\Database\Eloquent\Model;
 
 class Poblacion extends Model
 {
-    use HasFactory;
-    protected $table = "poblaciones";
-    protected $guarded = [];
+    use HasFactory; // Permite utilizar las factory para generar datos de prueba
+    
+    protected $table = "poblaciones"; // Nombre de la tabla en la base de datos
+    protected $guarded = []; 
 }

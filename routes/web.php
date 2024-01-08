@@ -26,14 +26,18 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+// Ruta por defecto que lleva a la página principal
 Route::get('/' , [AragonfoodController::class,'index']);
 
+// Ruta para mostrar todos los restaurantes
 Route::get('restaurantes' , [RestaurantesController::class,'index'])->name("restaurantes");
 
+// Agrupación de rutas relacionadas con la gestión de restaurantes
 Route::prefix('restaurantes')->middleware(AccesoAdmin::class)->group(function() {
     Route::get('nuevo' , [RestaurantesController::class,'nuevo'])->name("restaurante.nuevo");
     Route::post('nuevo' , [RestaurantesController::class,'nuevoPost'])->name("restaurante.nuevo-post");
     
+    // Rutas específicas para un restaurante en particular
     Route::prefix('{restaurante}')->whereNumber('restaurante')->group(function() {
         Route::get('/' , [RestauranteController::class,'index'])->name("restaurante");
         Route::post('guardar' , [RestauranteController::class,'guardar'])->name("restaurante.guardar");
@@ -41,19 +45,22 @@ Route::prefix('restaurantes')->middleware(AccesoAdmin::class)->group(function() 
     });
 });
 
+// Rutas relacionadas con el formulario de contacto
 Route::get('contacto' , [ContactoController::class,'index'])->name("contacto");
 Route::post('contacto/enviar' , [ContactoController::class,'enviar']);
 Route::get('contacto/exito' , [ContactoController::class,'exito'])->name("contacto.exito");
 
+// Otras rutas relacionadas con la aplicación
 Route::get('recetas' , [AragonfoodController::class,'recetas'])->name("recetas");
 
+// Rutas de autenticación (login, logout, registro)
 Route::get('login' , [LoginController::class,'index'])->middleware(AccesoLogin::class)->name('login');
 Route::post('login' , [LoginController::class,'login'])->name('login.login');
 Route::get('logout' , [LoginController::class,'logout'])->name('logout');
-
 Route::get('register' , [RegisterController::class, 'index'])->name('register');
 Route::post('register' , [RegisterController::class, 'register'])->name('register.form');
 
+// Rutas del dashboard y perfil de usuario
 Route::middleware(AccesoUsuario::class)->group(function() {
     Route::get('dashboard' , [DashboardController::class,'index'])->name("dashboard");
 
@@ -66,8 +73,10 @@ Route::middleware(AccesoUsuario::class)->group(function() {
        
     });
 
+      // Otras rutas dentro del dashboard
     Route::get('calendario' , [DashboardController::class,'calendario'])->name("calendario");
 
+    // Rutas de la comunidad
     Route::prefix('comunidad')->group(function() {
         Route::get('/', [ComunidadController::class,'index'])->name("comunidad");
         Route::post('enviar', [ComunidadController::class,'enviar'])->name("comunidad.enviar");
@@ -76,6 +85,7 @@ Route::middleware(AccesoUsuario::class)->group(function() {
 
 });
 
+// Rutas relacionadas con reseteo de contraseña
 Route::get('reset-password',[LoginController::class,'resetPassword'])->name("reset-password");        
 Route::post('reset-password',[LoginController::class,'resetPasswordEmail'])->name("reset-password-email");
 Route::get('reset-password-exito',[LoginController::class,'resetPasswordExito'])->name("reset-password-exito");
@@ -84,7 +94,7 @@ Route::get('reset-password-new/{token}',[LoginController::class,'resetPasswordNe
 Route::post('reset-password-new/{token}',[LoginController::class,'resetPasswordNewPost'])->name("reset-password-new-post")->whereUuid('token');        
 Route::get('reset-password-new-exito',[LoginController::class,'resetPasswordNewExito'])->name("reset-password-new-exito");
 
-//auth
+// Rutas de autenticación personalizada bajo '/auth'
 Route::prefix('auth')->group(function(){
     Route::get('login',function(){
         return 'Hola';

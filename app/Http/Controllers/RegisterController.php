@@ -11,6 +11,7 @@ use Illuminate\Support\Facades\Hash;
 class RegisterController extends Controller
 {
 
+    // Método para mostrar el formulario de registro
     public function index(PlantillaService $plantilla)
     {
         $plantilla->setTitle('Registrarse');
@@ -18,7 +19,7 @@ class RegisterController extends Controller
         return $plantilla->view('register');
     }
 
-
+    // Método para procesar el registro de un nuevo usuario
     public function register(RegisterRequest $request)
     {
         $validated = $request->validated();
